@@ -41,8 +41,13 @@ object KotlinWorkshop2 {
             print("Введите число в диапазоне 0..$nonNullUpperBound включительно: ")
             // Сохраняем введённое с клавиатуры число в "userInput".
             val userInput: Int = scanner.nextInt()
-            if (true) {
+if (userInput == randomNumber) {
+    println("Число равно $randomNumber!")
+    break
 
+}else if (userInput > randomNumber) {println("Число больше")}
+            else {
+                println("Число меньше")
             }
         }
 
@@ -51,14 +56,18 @@ object KotlinWorkshop2 {
 
         // TODO 2: Раскомментируй. Проинициализируй "numbersArray".
         //  "numbersArray" это массив целочисленных значений, длинной 5 чисел.
-//        val numbersArray =
+       val numbersArray = intArrayOf(10,20,30,40,50)
+        println("Задан массив:")
+        for ((index, number) in numbersArray.withIndex()){
+            println("$index, $number")
+        }
 
         // TODO 3: Раскомментируй. Проинициализируй свойство "size" длинной массива "numbersArray".
         //  Измени условия повтора бесконечного цикла while так, чтобы он стал конечным и выполнился не более "size" раз.
         println("\n Программа 2. \"Введите коллекцию чисел\"")
-//        val size =
+        val size = numbersArray.size
         var counter = 0
-        while (true) {
+        while (counter < size) {
             print("Введите число в диапазоне 0..10 включительно: ")
             val userInput: Int = scanner.nextInt()
 
@@ -68,8 +77,11 @@ object KotlinWorkshop2 {
             //  - Если введено 9 - сложи и добавь (2 + size);
             //  - Иначе не добавляй ничего.
             //  Используй выражение "When".
-            when {
-
+            when (userInput) {
+                3 -> numbersArray.set(counter, userInput)
+                5 -> numbersArray.set(counter, userInput * size)
+                9 -> numbersArray.set(counter, userInput + size)
+                else -> { /* babab */ }
             }
 
             counter++
@@ -77,7 +89,9 @@ object KotlinWorkshop2 {
 
         // TODO 5: Выведи в консоль значения элементов массива и индекс, на котором они находятся.
         //  Новый элемент на новой строке. Это должно выглядеть как "индекс: значение".
-
+        for ((index, number) in numbersArray.withIndex()){
+            println("$index: $number")
+        }
     }
 
 
