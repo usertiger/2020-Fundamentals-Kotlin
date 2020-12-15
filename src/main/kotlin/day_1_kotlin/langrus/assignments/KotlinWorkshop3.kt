@@ -1,3 +1,5 @@
+import sun.tools.java.ScannerInputReader
+
 @file:Suppress("CanBeVal", "UNUSED_PARAMETER", "unused", "UNUSED_VARIABLE", "UNUSED_ANONYMOUS_PARAMETER")
 
 package day_1_kotlin.langrus.assignments
@@ -39,7 +41,7 @@ object KotlinWorkshop3 {
             // TODO 1: Раскомментируй.
             //  Объяви функцию "playRound": она должна принимать на вход два Int аргумента и возвращать Boolean.
             //  См. ниже.
-//            guessed = playRound(userInput, randomNumber)
+          guessed = playRound(userInput, randomNumber)
 
             counter++
         }
@@ -56,10 +58,21 @@ object KotlinWorkshop3 {
     //  Если введено число больше "randomNumber", выведи сообщение "Your Guess is higher, continue." и верни false;
     //  Если введено число меньше "randomNumber", выведи сообщение "Your Guess is lower, continue." и верни false.
     //  Можно использовать наработки из workshop 2, с отличием, что здесь это вынесенная функция, нет цикла и возвращает результат.
-//    private fun playRound(...) : ... {
-//
-//        return false
-//    }
+    private fun playRound(arg1: Int, arg2: Int) : Boolean {
+        when {
+            userInput == randomNumber -> {
+                println("Got it!, $randomNumber!")
+                return true
+            }
+            userInput > randomNumber -> {
+                println("higher")
+            }
+            else -> {
+                println("lower")
+            }
+        }
+       return false
+    }
 
 
 
